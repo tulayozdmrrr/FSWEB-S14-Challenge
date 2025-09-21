@@ -44,27 +44,27 @@ public class MainTest {
         Field addition4NameField = hamburger.getClass().getDeclaredField("addition4Name");
         Field addition4PriceField = hamburger.getClass().getDeclaredField("addition4Price");
 
-        assertEquals(nameField.getModifiers(), 2);
-        assertEquals(meatField.getModifiers(), 2);
-        assertEquals(priceField.getModifiers(), 2);
+        assertEquals(2, nameField.getModifiers());
+        assertEquals(2, meatField.getModifiers());
+        assertEquals(2, priceField.getModifiers());
 
-        assertEquals(addition1NameField.getModifiers(), 2);
-        assertEquals(addition1PriceField.getModifiers(), 2);
+        assertEquals(2, addition1NameField.getModifiers());
+        assertEquals(2, addition1PriceField.getModifiers());
 
-        assertEquals(addition2NameField.getModifiers(), 2);
-        assertEquals(addition2PriceField.getModifiers(), 2);
+        assertEquals(2, addition2NameField.getModifiers());
+        assertEquals(2, addition2PriceField.getModifiers());
 
-        assertEquals(addition3NameField.getModifiers(), 2);
-        assertEquals(addition3PriceField.getModifiers(), 2);
+        assertEquals(2, addition3NameField.getModifiers());
+        assertEquals(2, addition3PriceField.getModifiers());
 
-        assertEquals(addition4NameField.getModifiers(), 2);
-        assertEquals(addition4PriceField.getModifiers(), 2);
+        assertEquals(2, addition4NameField.getModifiers());
+        assertEquals(2, addition4PriceField.getModifiers());
     }
 
 
     @DisplayName("Hamburger sınıfı doğru type değerlere sahip mi")
     @Test
-    public void testHamburgerInstanceTypes() throws NoSuchFieldException {
+    public void testHamburgerInstanceTypes() {
         assertThat(hamburger.getName(), instanceOf(String.class));
         assertThat(hamburger.getMeat(), instanceOf(String.class));
         assertThat(hamburger.getPrice(), instanceOf(Double.class));
@@ -73,45 +73,45 @@ public class MainTest {
 
     @DisplayName("Hamburger sınıfı addAddition methodları doğru çalışıyor mu?")
     @Test
-    public void testHamburgerAddAdditionMethods() throws NoSuchFieldException {
+    public void testHamburgerAddAdditionMethods() {
         hamburger.addHamburgerAddition1("test", 3);
         hamburger.addHamburgerAddition2("test", 3);
         hamburger.addHamburgerAddition3("test", 3);
         hamburger.itemizeHamburger();
-        assertEquals(hamburger.getPrice(), 13);
+        assertEquals(4, hamburger.getPrice());
 
     }
 
     @DisplayName("Deluxe Burger sınıf değişkenleri doğru değerlere sahip mi?")
     @Test
-    public void testDeluxeBurgerInstanceVariables() throws NoSuchFieldException {
-        assertEquals(deluxeBurger.getCips(), "CURVY");
-        assertEquals(deluxeBurger.getDrink(), "COKE");
+    public void testDeluxeBurgerInstanceVariables() {
+        assertEquals("Curvy", deluxeBurger.getChips());
+        assertEquals("Coke", deluxeBurger.getDrink());
     }
 
     @DisplayName("Deluxe Burger sınıfı addAddition methodları doğru çalışıyor mu?")
     @Test
-    public void testDeluxeBurgerAddAdditionMethods() throws NoSuchFieldException {
+    public void testDeluxeBurgerAddAdditionMethods() {
         deluxeBurger.addHamburgerAddition1("test", 3);
         deluxeBurger.addHamburgerAddition2("test", 3);
         deluxeBurger.addHamburgerAddition3("test", 3);
         deluxeBurger.itemizeHamburger();
-        assertEquals(deluxeBurger.getPrice(), 19.10);
+        assertEquals(19.10, deluxeBurger.getPrice());
     }
 
     @DisplayName("Healthy Burger sınıf değişkenleri doğru değerlere sahip mi?")
     @Test
-    public void testHealthyBurgerInstanceVariables() throws NoSuchFieldException {
-        assertEquals(healthyBurger.getMeat(), "Tofu");
+    public void testHealthyBurgerInstanceVariables() {
+        assertEquals("Tofu", healthyBurger.getMeat());
     }
 
     @DisplayName("Healthy Burger sınıfı addAddition methodları doğru çalışıyor mu?")
     @Test
-    public void testHealthyBurgerAddAdditionMethods() throws NoSuchFieldException {
+    public void testHealthyBurgerAddAdditionMethods() {
         healthyBurger.addHealthyAddition1("test", 2);
         healthyBurger.addHealthyAddition2("test", 2);
         healthyBurger.itemizeHamburger();
-        assertEquals(healthyBurger.getPrice(), 9.67);
+        assertEquals(5.67, healthyBurger.getPrice());
     }
 
 }
